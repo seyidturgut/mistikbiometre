@@ -96,21 +96,15 @@ export const MysticID = forwardRef<HTMLDivElement, Props>(function MysticID(
         )}
       </div>
 
-      {/* Palm mini map */}
+      {/* Aura spiral — abstract mandala derived from aura score */}
       {palm && (
-        <div className="relative mx-6 mb-4 rounded-2xl overflow-hidden ring-1 ring-white/10 aspect-[2/1] bg-black/40">
-          <img
-            src={palm.analysis.capturedDataUrl}
-            alt=""
-            className="absolute inset-0 w-full h-full object-cover scale-x-[-1] opacity-50"
-          />
-          <img
-            src={palm.analysis.edgeMapDataUrl}
-            alt=""
-            className="absolute inset-0 w-full h-full object-cover scale-x-[-1] mix-blend-screen"
+        <div className="relative mx-6 mb-4 rounded-2xl overflow-hidden ring-1 ring-white/10 aspect-[2/1] bg-black/50 flex items-center justify-center">
+          <AuraSpiral
+            score={palm.analysis.auraScore}
+            color={voice?.chakraColor ?? "#4af0d4"}
           />
           <div className="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-black/70 backdrop-blur text-[9px] font-mono tracking-wider text-neon-cyan ring-1 ring-neon-cyan/40">
-            Palm Lines
+            Aura Spiral
           </div>
           <div className="absolute bottom-2 right-2 text-[10px] font-mono text-neon-gold">
             Aura {palm.analysis.auraScore}
@@ -203,6 +197,133 @@ function Stat({
       </div>
       <p className="text-xs font-medium leading-tight">{value}</p>
     </div>
+  );
+}
+
+/**
+ * Score-driven mystical mandala. Layers:
+ *  - outer dashed ring with tick marks
+ *  - rosette of N petals (count derived from auraScore)
+ *  - inner pentagram of overlapping triangles
+ *  - center dot
+ */
+function AuraSpiral({ score, color }: { score: number; color: string }) {
+  const petals = Math.max(7, Math.min(24, 7 + Math.round(score / 6)));
+  const cx = 100;
+  const cy = 50;
+  const outerR = 38;
+  const petalR = 28;
+
+  // Pre-compute petal positions
+  const petalNodes = Array.from({ length: petals }, (_, i) => {
+    const a = (i / petals) * Math.PI * 2;
+    return { x: cx + Math.cos(a) * petalR, y: cy + Math.sin(a) * petalR };
+  });
+
+  // Inner pentagon points (5-fold rosette)
+  const pentagram = Array.from({ length: 5 }, (_, i) => {
+    const a = (i / 5) * Math.PI * 2 - Math.PI / 2;
+    return [cx + Math.cos(a) * 16, cy + Math.sin(a) * 16].join(",");
+  }).join(" ");
+
+  // Tick marks around the outer ring
+  const ticks = Array.from({ length: 36 }, (_, i) => {
+    const a = (i / 36) * Math.PI * 2;
+    const x1 = cx + Math.cos(a) * (outerR + 1);
+    const y1 = cy + Math.sin(a) * (outerR + 1);
+    const len = i % 9 === 0 ? 3 : 1.4;
+    const x2 = cx + Math.cos(a) * (outerR + 1 + len);
+    const y2 = cy + Math.sin(a) * (outerR + 1 + len);
+    return { x1, y1, x2, y2 };
+  });
+
+  return (
+    <svg viewBox="0 0 200 100" className="w-full h-full">
+      <defs>
+        <radialGradient id="aura-glow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor={color} stopOpacity="0.35" />
+          <stop offset="60%" stopColor={color} stopOpacity="0.05" />
+          <stop offset="100%" stopColor={color} stopOpacity="0" />
+        </radialGradient>
+      </defs>
+
+      {/* glow */}
+      <rect x="0" y="0" width="200" height="100" fill="url(#aura-glow)" />
+
+      {/* outer dashed ring */}
+      <circle
+        cx={cx}
+        cy={cy}
+        r={outerR}
+        fill="none"
+        stroke={color}
+        strokeOpacity="0.45"
+        strokeWidth="0.4"
+        strokeDasharray="1.5 1.5"
+      />
+
+      {/* tick marks */}
+      <g stroke={color} strokeOpacity="0.55" strokeWidth="0.4">
+        {ticks.map((t, i) => (
+          <line key={i} x1={t.x1} y1={t.y1} x2={t.x2} y2={t.y2} />
+        ))}
+      </g>
+
+      {/* petal circles */}
+      <g stroke={color} strokeOpacity="0.75" strokeWidth="0.4" fill="none">
+        {petalNodes.map((p, i) => (
+          <circle key={i} cx={p.x} cy={p.y} r="6" />
+        ))}
+      </g>
+
+      {/* connecting chords for first/half petals */}
+      <g stroke={color} strokeOpacity="0.3" strokeWidth="0.25">
+        {petalNodes.map((p, i) => {
+          const next = petalNodes[(i + Math.floor(petals / 3)) % petals];
+          return (
+            <line key={i} x1={p.x} y1={p.y} x2={next.x} y2={next.y} />
+          );
+        })}
+      </g>
+
+      {/* inner pentagram (rosette) */}
+      <g
+        stroke={color}
+        strokeOpacity="0.6"
+        strokeWidth="0.5"
+        fill="none"
+      >
+        <polygon points={pentagram} />
+        <polygon
+          points={pentagram}
+          transform={`rotate(36 ${cx} ${cy})`}
+          opacity="0.55"
+        />
+      </g>
+
+      {/* score arc */}
+      <circle
+        cx={cx}
+        cy={cy}
+        r={outerR - 3}
+        fill="none"
+        stroke={color}
+        strokeWidth="1"
+        strokeLinecap="round"
+        strokeDasharray={`${(score / 100) * 2 * Math.PI * (outerR - 3)} 999`}
+        transform={`rotate(-90 ${cx} ${cy})`}
+        style={{ filter: `drop-shadow(0 0 1.5px ${color})` }}
+      />
+
+      {/* center dot */}
+      <circle
+        cx={cx}
+        cy={cy}
+        r="2.4"
+        fill={color}
+        style={{ filter: `drop-shadow(0 0 3px ${color})` }}
+      />
+    </svg>
   );
 }
 
