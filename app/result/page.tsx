@@ -46,7 +46,7 @@ export default function ResultPage() {
     if (!cardRef.current) return;
     setExporting(true);
     try {
-      const html2canvas = (await import("html2canvas")).default;
+      const html2canvas = (await import("html2canvas-pro")).default;
       const canvas = await html2canvas(cardRef.current, {
         backgroundColor: "#07060c",
         scale: 2,
