@@ -9,6 +9,7 @@ import { CameraError } from "@/components/CameraError";
 import { ScanShell } from "@/components/ScanShell";
 import { buildVoiceResult, type VoiceCapture } from "@/lib/voiceAnalysis";
 import { useMysticStore, type VoiceResult } from "@/lib/store";
+import { enhanceVoiceWithGrok } from "@/lib/grok";
 
 type Phase = "scan" | "result" | "error";
 
@@ -20,11 +21,16 @@ export default function VoicePage() {
   const [voice, setVoiceLocal] = useState<VoiceResult | null>(null);
   const [capture, setCapture] = useState<VoiceCapture | null>(null);
 
-  const handleComplete = useCallback((cap: VoiceCapture) => {
+  const handleComplete = useCallback(async (cap: VoiceCapture) => {
     setCapture(cap);
     const v = buildVoiceResult(cap);
     setVoiceLocal(v);
     setPhase("result");
+    // Best-effort enhance with Grok in the background; on failure local
+    // result already drives the UI so nothing breaks.
+    enhanceVoiceWithGrok(v)
+      .then((enhanced) => setVoiceLocal(enhanced))
+      .catch(() => undefined);
   }, []);
 
   return (

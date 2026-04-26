@@ -9,6 +9,7 @@ import { AnalyzingView } from "@/components/AnalyzingView";
 import { CameraError } from "@/components/CameraError";
 import { ScanShell } from "@/components/ScanShell";
 import { useMysticStore, type FaceResult, type IrisResult } from "@/lib/store";
+import { enhanceFaceWithGrok } from "@/lib/grok";
 
 type Phase = "scan" | "analyzing" | "result" | "error";
 
@@ -25,6 +26,11 @@ export default function FaceIrisPage() {
     setFaceLocal(f);
     setIrisLocal(i);
     setPhase("analyzing");
+    // Background enhancement; if Grok succeeds it overrides local strings
+    // before AnalyzingView's 3.5s timer hands off to results.
+    enhanceFaceWithGrok(f)
+      .then((enhanced) => setFaceLocal(enhanced))
+      .catch(() => undefined);
   }, []);
 
   const handleRestart = () => {

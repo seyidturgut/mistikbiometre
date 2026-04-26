@@ -10,6 +10,7 @@ import { CameraError } from "@/components/CameraError";
 import { ScanShell } from "@/components/ScanShell";
 import { analyzePalm } from "@/lib/palmAnalysis";
 import { generateReading } from "@/lib/readings";
+import { generateReadingFromGrok } from "@/lib/grok";
 import { useMysticStore } from "@/lib/store";
 import type { CaptureResult, PalmAnalysis, Reading } from "@/lib/types";
 
@@ -33,7 +34,8 @@ export default function PalmPage() {
     setPhase("analyzing");
     try {
       const a = await analyzePalm(cap.imageDataUrl, cap.handedness);
-      const r = generateReading(a);
+      // Try Grok first; fall back to local combinatorial reading on any failure.
+      const r = (await generateReadingFromGrok(a)) ?? generateReading(a);
       setAnalysis(a);
       setReading(r);
     } catch (err) {
