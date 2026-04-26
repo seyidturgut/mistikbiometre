@@ -1,0 +1,71 @@
+{
+  "archetypes": {
+    "high_high_high": {
+      "name": "Kâhin",
+      "description": "Hem zihinsel hem fiziksel hem de sezgisel donanımı yüksek. Bir odaya girdiğinde dengeyi anında kuran nadir bir tip — geleceği görmeye yatkın."
+    },
+    "high_high_medium": {
+      "name": "Stratejist",
+      "description": "Akıl ve irade aynı anda çalışıyor. Plan yapma yeteneğin başkalarının seni 'doğal lider' sanmasına neden oluyor."
+    },
+    "high_medium_high": {
+      "name": "Mistik Düşünür",
+      "description": "Vizyonun keskin, sezgilerin ondan da keskin. Mantık ve sezgiyi aynı bardakta içen az sayıdaki insandan birisin."
+    },
+    "medium_high_high": {
+      "name": "Komutan-Şifacı",
+      "description": "Karar verme gücün ve insanları okuma yeteneğin nadir bir kombinasyon. Yanında olanlar kendilerini güvende hisseder."
+    },
+    "high_medium_medium": {
+      "name": "Vizyoner",
+      "description": "Diğerlerinin görmediğini görüyorsun. Ama bu vizyonu hayata geçirmek için bazen daha fazla aksiyon alman gerekiyor."
+    },
+    "medium_high_medium": {
+      "name": "Lider",
+      "description": "Kararlısın, dirençlisin, sözünü tutarsın. İnsanlar farkında olmadan senin yörüngende toplanıyor."
+    },
+    "medium_medium_high": {
+      "name": "Sezgisel Sanatçı",
+      "description": "Hassas bir antene sahipsin. Diğerlerinin saatlerde anladığını saniyede hissediyorsun — bu yeteneği koruman önemli."
+    },
+    "medium_medium_medium": {
+      "name": "Dengeci",
+      "description": "Hiçbir özelliğin abartısız ama hepsi sağlam. Bu denge senin gizli süper gücün — fırtınalarda devrilmiyorsun."
+    },
+    "low_high_high": {
+      "name": "Sessiz Bilge",
+      "description": "Az konuşur, çok hisseder, doğru zamanda davranırsın. Konuştuğunda dinleyenler bir not alır."
+    },
+    "high_low_high": {
+      "name": "Hayalperest",
+      "description": "İçinde sınırsız bir hayal dünyası var. Onu aksiyona dökmen için seni yere indiren bir ortağa ihtiyacın olabilir."
+    },
+    "high_high_low": {
+      "name": "Akıl-İrade Mimari",
+      "description": "Düşünür ve uygularsın. Sezgilerin biraz uykuda olabilir — onu uyandırdığında durdurulamaz olursun."
+    },
+    "low_low_low": {
+      "name": "Suya Yansıyan",
+      "description": "Olduğun gibi varsın, kimseyle yarışmıyorsun. Bu sade duruşun, çoğunluğun bulamadığı bir huzur veriyor."
+    },
+    "default": {
+      "name": "Yıldız Çocuğu",
+      "description": "Henüz tek bir kalıba sığmıyorsun ve bu çok güzel. İçinde hâlâ pişen, parlayan bir yan var."
+    }
+  },
+  "intellect": {
+    "high": "Soyut düşünmek, bağlantı kurmak ve büyük resmi görmek senin için doğal. Zihnin başkalarının yüzeyde gördüğünün altına dalıyor.",
+    "medium": "Mantık ve duygu arasında dengeli bir köprün var. Karar verirken iki yarımküreyi de dinliyorsun ve bu çoğu zaman seni isabetli kılıyor.",
+    "low": "Zekan kitabi değil, yaşamsal. Teorilerden çok deneyimden öğreniyor ve gerçek hayatta diğerlerinden hızlı pratikleşiyorsun."
+  },
+  "willpower": {
+    "high": "Kararlılığın çelik gibi. Bir şeyi 'evet' dediğinde bitiriyorsun — bu istikrar etrafındakilere de bulaşan bir niteliğe sahip.",
+    "medium": "Disiplinli ama esneksin. Yolu kaybetmeden farklı çıkışları deneyebilen bir yapın var.",
+    "low": "Akış halinde yaşamayı seviyorsun. Disiplin senin için kalıp değil, ritim — yanlış ritimde zorlanıyor, doğru ritimde uçuyorsun."
+  },
+  "perception": {
+    "high": "Algın olağanüstü geniş. Söylenmeyeni duyuyor, gizleneni görüyorsun. Bu yetenek bazen yorucu olabilir, kendine zaman ayırman önemli.",
+    "medium": "Sezgilerin canlı ama duruma göre devreye giriyor. İçindeki uyarıları daha sık ciddiye aldığında tutarlılık artıyor.",
+    "low": "Önce gözle görmek istiyorsun. Bu seni gerçekçi kılıyor — kanıt isteyen, hayal kurmayan, sağlam bir tip."
+  }
+}

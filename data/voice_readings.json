@@ -1,0 +1,43 @@
+{
+  "low": {
+    "chakra": "Kök Çakra",
+    "chakraColor": "#d65656",
+    "vocalAura": "Topraklı Ses",
+    "description": "Sesin derin frekanslarda titreşiyor. Kök çakran aktif — güvende hissetme, fiziksel istikrar, aile ve maddi temel konuları şu sıralar ön planda. Sözlerinin ağırlığı var, insanlar seni dinliyor."
+  },
+  "low_mid": {
+    "chakra": "Sakral Çakra",
+    "chakraColor": "#ff8c3f",
+    "vocalAura": "Akışkan Ses",
+    "description": "Sesin yumuşak ve akışkan. Sakral çakran açık — yaratıcılık, duygusal akıcılık ve yakın ilişkilerde derinlik üretiyorsun. Bedenle uyum içinde olduğun bir dönemdesin."
+  },
+  "mid": {
+    "chakra": "Solar Pleksus",
+    "chakraColor": "#f5c542",
+    "vocalAura": "Altın Ses",
+    "description": "Sesin orta tonda, dengeli. Solar pleksus çakran çalışıyor — özgüven, kişisel güç ve niyetini hayata geçirme enerjisi yüksek. Kararlarına arkadan rüzgar üflüyor."
+  },
+  "mid_high": {
+    "chakra": "Kalp Çakrası",
+    "chakraColor": "#5fe8a8",
+    "vocalAura": "Yeşil Ses",
+    "description": "Sesin sıcak ve sarmalayan bir yumuşaklığa sahip. Kalp çakran açık — empati, sevgi, affediş ve şefkat şu sıralar baskın frekansın. Sana yaklaşan kalp huzur buluyor."
+  },
+  "high": {
+    "chakra": "Boğaz Çakrası",
+    "chakraColor": "#5fa8ff",
+    "vocalAura": "Mavi Kristal Ses",
+    "description": "Sesin parlak ve net. Boğaz çakran aktif — gerçeği söyleme, ifade etme ve duyulma temaların güçlü. İçinde söylenmeyi bekleyen bir cümle olabilir; cesaretle dile getir."
+  },
+  "very_high": {
+    "chakra": "Üçüncü Göz",
+    "chakraColor": "#a574ff",
+    "vocalAura": "Eter Ses",
+    "description": "Sesin yüksek titreşimlerde dans ediyor. Üçüncü göz çakran aktif — sezgi, vizyon ve görünmeyene açıklık. Rüyaların ve sezgisel ipuçların bu sıralar daha sık 'doğru çıkıyor'."
+  },
+  "stability": {
+    "high": "Sesindeki istikrar dikkat çekici — söylediklerini içsel olarak da hissediyorsun, bu yüzden sözlerin etkili.",
+    "medium": "Sesinde küçük dalgalanmalar var; bu samimiyetin işareti — robotlaşmamışsın, hissediyorsun.",
+    "low": "Sesin değişken — duygusal yoğunlukta bir dönemdesin. Birkaç derin nefes, frekansını dengeleyebilir."
+  }
+}

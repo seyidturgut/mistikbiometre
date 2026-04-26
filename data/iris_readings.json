@@ -1,0 +1,44 @@
+{
+  "colors": {
+    "blue": {
+      "name": "Mavi",
+      "hex": "#5fa8ff",
+      "soulAge": "Genç Ruh",
+      "element": "Hava",
+      "description": "Mavinin sahibisin — özgürlük, açıklık ve berraklık seninle birlikte hareket eder. Genç bir ruh taşıyorsun; dünyaya hâlâ ilk gün gibi şaşırarak bakıyorsun."
+    },
+    "green": {
+      "name": "Yeşil",
+      "hex": "#5fe8a8",
+      "soulAge": "Olgun Ruh",
+      "element": "Toprak",
+      "description": "Yeşil gözlerin doğanın dengesini taşıyor. Olgun bir ruhun var; sen koşmazsın, kök salarsın. Zorluk anlarında etrafındakiler farkında olmadan sana yaslanıyor."
+    },
+    "hazel": {
+      "name": "Ela",
+      "hex": "#a8814a",
+      "soulAge": "Geçişli Ruh",
+      "element": "Ateş + Toprak",
+      "description": "Ela bir göze sahipsin — birden fazla rengi ve birden fazla hayatı taşıyorsun. Bir an sıcak, bir an mesafeli olabilirsin; bu çok katmanlı yapın seni gizemli kılıyor."
+    },
+    "brown": {
+      "name": "Kahve",
+      "hex": "#7a4e2e",
+      "soulAge": "Eski Ruh",
+      "element": "Toprak",
+      "description": "Kahve gözlerin köklü bir bilgelik taşıyor. Eski bir ruhsun; bu dünyada birkaç kez yürümüş gibisin. Az konuşur, çok hissedersin."
+    },
+    "gray": {
+      "name": "Gri",
+      "hex": "#9aa1ad",
+      "soulAge": "Bilge Ruh",
+      "element": "Su + Hava",
+      "description": "Gri bir gözün var — duruşu metalin, derinliği denizin. Bilge bir ruhsun, kararların çoğu düşünüldüğünden çok hissedildi."
+    }
+  },
+  "blink_rate": {
+    "low": "Göz kırpman seyrek — derin odaklanan, dünyayı uzun uzun izleyen bir tipsin. Konsantrasyonun çoğunluktan yüksek.",
+    "medium": "Göz kırpma ritmin dengeli. Ne kayıtsız ne aşırı uyaranlısın; iç dünyanla dış dünya arasında sağlıklı bir köprü kuruyorsun.",
+    "high": "Hızlı göz kırpıyorsun — hassas bir antene sahipsin. Çevredeki en küçük değişikliği ilk fark eden sensin, bu seni iyi bir gözlemci yapıyor."
+  }
+}
